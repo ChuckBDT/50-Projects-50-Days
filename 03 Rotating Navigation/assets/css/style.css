@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'Robot', Arial;
+    background-color: #333;
+    overflow-x: hidden;
+    margin:0;
+}
+
+.container {
+    background-color: #fafafa;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px 0;
+}
+
+.container.show-nav {
+    transform: rotate(-20deg);
+}
+
+.container.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: .3s;
+}
+
+.circle-container {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+}
+.circle {
+    background-color: salmon;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform .5s linear;
+}
+
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+}
+
+.circle button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background: transparent;
+    border: 0;
+    font-size: 25px;
+    color: white;
+}
+
+.circle button:focus {
+    outline: none;
+}
+
+.circle button#open {
+    left: 65%;
+}
+
+.circle button#close {
+    top: 65%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+.content {
+    margin: 0 auto;
+    width: 70vw;
+}
+
+
+.content img {
+    width: 100%;
+}
+
+.content p {
+    text-align: justify;
+}
+
+nav {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 20;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-inline-start: 20px;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    color: white;
+    margin: 40px 0;
+    transform: translateX(-100%);
+    transition: transform .4s ease-in;
+}
+
+nav ul li + li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+
+nav ul li i {
+    margin-right: 10px;
+}
