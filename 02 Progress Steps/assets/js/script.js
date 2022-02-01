@@ -13,15 +13,11 @@ btnPrev.addEventListener("click", prevStep);
 
 // Functions
 
-console.log(contCircle);
-
 function nextStep() {
     currentActive++
     if (currentActive > contCircle.length) {
         currentActive = contCircle.length;
     }
-    
-    
     update()
 }
 
@@ -30,12 +26,10 @@ function prevStep() {
     if (currentActive > 1) {
         currentActive--
     }
-    
     update()
 }
 
-function update() {
-    
+function update() { 
     contCircle.forEach((circle, idx) => {
         if(idx < currentActive) {
             circle.classList.add("active");
@@ -43,32 +37,15 @@ function update() {
             circle.classList.remove("active");
         }
     })
+    
     const actives = document.querySelectorAll(".active");
     barProg.style.width = ((((actives.length - 1) / (contCircle.length - 1))*100)+ "%");
-    console.log(actives);
-    if (actives.length > 1) {
-        btnPrev.disabled = false;
-    }   else if (actives.length === circle.length) {
+    if (actives.length === 1) {
+        btnPrev.disabled = true;
+        btnNext.disabled = false;
+    } else if (actives.length === contCircle.length) {
         btnNext.disabled = true;
     } else {
-        btnPrev.disabled = true;
-        
+        btnPrev.disabled = false;  
     }
 }
-
-
-
-
-
-
-
-
-
-// function nextStep() {
-    
-
-//     barProg.style.width = (parseInt(barProg.style.width, 10) + 33) + '%';
-//     if (barProg.style.width >= "25%") {
-//         btnPrev.setAttribute("disabled", "false");
-//     }
-// }
